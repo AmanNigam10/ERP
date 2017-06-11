@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+
+	<!-- <bean id="cust" class="com.psl.model.Customer">
+		<property name="firstName" value="Raseeka"></property>
+		<property name="lastName" value="Barsawade"></property>
+		<property name="email" value="a@b.com"></property>
+		<property name="password" value="password"></property>
+		<property name="address" value="Pune"></property>
+		<property name="contactNo" value="8888888888"></property>
+		<property name="securityQues" value="My favourite animal"></property>
+		<property name="securityAns" value="Mauuuiiii"></property>
+
+	</bean>
+
+	<bean id="product" class="com.psl.model.Product">
+		<property name="productId" value="1"></property>
+		<property name="prodcutName" value="HP"></property>
+		<property name="section" value="Laptops"></property>
+		<property name="price" value="60000"></property>
+		<property name="quantity" value="5"></property>
+		<property name="image" value="abcd"></property>
+
+	</bean>
+	<bean id="product1" class="com.psl.model.Product">
+		<property name="productId" value="2"></property>
+		<property name="prodcutName" value="DELL"></property>
+		<property name="section" value="Laptops"></property>
+		<property name="price" value="50000"></property>
+		<property name="quantity" value="8"></property>
+		<property name="image" value="hjhj"></property>
+
+	</bean>
+
+
+	<bean id="cart" class="com.psl.model.Cart">
+		<property name="email" value="a@b.com"></property>
+		<property name="productId" value="2"></property>
+		<property name="productName" value="DELL"></property>
+		<property name="quantityPurchased" value="3"></property>
+	</bean>
+	
+	 -->
+	
+<!-- 	<bean id="cust_service" class ="com.psl.service.CustomerService">
+		<property name="dao" ref="dao" />
+	</bean>
+
+	<bean id="prod_service" class="com.psl.service.ProductService">
+		<property name="dao" ref="dao"></property>
+	</bean> -->
+
+	<bean id="cart_service" class="com.psl.service.CartService">
+		<property name="dao" ref="dao"></property>
+	</bean>
+	
+	<bean id="bill_service" class="com.psl.service.BillService">
+		<property name="dao" ref="dao"></property>
+	</bean>
+<!-- 	
+	<bean id="user_service" class="com.psl.service.Authentication">
+		<property name="dao" ref="dao"></property>
+	</bean>
+	
+	
+	<bean id="pdf_service" class="com.psl.service.CreatePdf">
+		<property name="dao" ref="dao"></property>
+	</bean>
+ -->
+	<bean id="dao" class="com.psl.dao.DataManagerImpl">
+		<property name="template" ref="template"></property>
+	</bean>
+
+	<bean id="template" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="ds"></property>
+	</bean>
+
+	<bean id="ds"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
+		<property name="url" value="jdbc:mysql://localhost:3306/onlineshopping"></property>
+		<property name="username" value="root"></property>
+		<property name="password" value="soft"></property>
+
+	</bean>
+
+</beans>

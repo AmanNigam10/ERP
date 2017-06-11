@@ -1,0 +1,6 @@
+.img-refactor img{
+	max-width: 220px;
+	max-height: 200px;
+	min-width: 220px;
+	min-height: 200px;
+}
